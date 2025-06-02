@@ -1,44 +1,47 @@
-let arr = [1,2,3,4,5]
-for(let i = 0; i< 10; i++){
-    arr.push(Math.floor(Math.random()*100))
+function ex1(str){
+    console.log([...str].filter(char => char === ' ').length)
 }
-for(let i in arr){
-    console.log(i)
-}
-// console.log("Filtered: ", arr.filter(i => i % 10 === 0 ))
+let str = "  a a s aasdasdas dasgdfhd fsd  "
+ex1(str)
 //2
-for (let i = 0; i < arr.length; i++){
-    console.log(`[${i+1}]- ${arr[i]}`)
+function ex2(str){
+    str = str.replace(str[0],str[0].toUpperCase())
+    console.log(str)
 }
+ex2(str)
 //3
-for (let i in arr){
-    if (i % 7 == 0){
-        console.log("number found!");
-        break;
-    }
+function ex3(str){
+    let sumWords = str.trim(" ").split(" ").length;
+    //let sumWords = str.split(" ").length;
+    console.log(sumWords)
 }
+ex3(str)
 //4
-let arrDec = arr.sort((a,b) => b - a);
-function Print(arr){
-    for (let i = 0; i < arr.length; i++){
-        console.log(`[${i+1}]- ${arr[i]}`)
+function ex4(str){
+    let returnStr = str.trim(" ").split(" ")
+    let ab = "";
+    for(let i of returnStr){
+        ab += i[0].toUpperCase() 
     }
+    return ab
 }
-Print(arrDec)
+console.log(ex4(str))
 //5
-arr.fill(0,arr.length/2,arr.length + 1);
-Print(arr)
-//6
-arr.splice(0,3)
-Print(arr);
-//7
-if (arr.every(el => el === arr[0])) {
-    console.log("arr have same num");
+function reverse(str){
+    let reversed = "";
+
+    for (let i = str.length - 1; i >= 0; i--) {
+        reversed += str[i];
+    }
+    return reversed
 }
-//8
-let newArr= arr.splice(1, arr.length - 1)
-Print(newArr)
-//9
-Print(newArr)
-let sum_ = newArr.filter(x => x%2===0 && x !== 0).length;
-console.log("sum->", sum_);
+function ex5(str){
+    let halfStr = str.slice(0,str.length/2)
+    let secondHalfStr = str.slice(str.length/2, str.length)
+    secondHalfStr = reverse(secondHalfStr)
+    if(secondHalfStr === halfStr) console.log("this is palidrom")
+    else console.log("this is not palidrom")
+}
+let strPal = "a bb a"
+ex5(strPal)
+//6
